@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import fetch from 'cross-fetch'
 
-export default function Home() {
+function Home(props) {
   return (
     <div className="container">
       <Head>
@@ -12,6 +13,10 @@ export default function Home() {
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <h2>
+          Server-side rendered from <strong>{props.city} in {props.regionName}, {props.country}</strong>
+        </h2>
 
         <p className="description">
           Get started by editing <code>pages/index.js</code>
@@ -188,6 +193,9 @@ export default function Home() {
             flex-direction: column;
           }
         }
+        
+        h2 { font-weight: normal; }
+        .description, .grid, footer { display: none; }
       `}</style>
 
       <style jsx global>{`
@@ -207,3 +215,10 @@ export default function Home() {
     </div>
   )
 }
+
+Home.getInitialProps = async () => {
+  const geo_response = await fetch('http://ip-api.com/json')
+  return await geo_response.json()
+}
+
+export default Home
