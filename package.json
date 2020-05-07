@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:fab": "npm run build && npm run fab:build",
+    "fab:build": "fab build",
+    "fab:serve": "fab serve fab.zip",
     "start": "next start"
   },
   "dependencies": {
@@ -12,5 +15,15 @@
     "next": "9.3.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@fab/actions": "^0.2.4",
+    "@fab/cli": "^0.2.4",
+    "@fab/deployer-aws-s3": "^0.2.4",
+    "@fab/deployer-cf-workers": "^0.2.4",
+    "@fab/input-nextjs": "^0.2.4",
+    "@fab/plugin-render-html": "^0.2.4",
+    "@fab/plugin-rewire-assets": "^0.2.4",
+    "@fab/server": "^0.2.4"
   }
 }
