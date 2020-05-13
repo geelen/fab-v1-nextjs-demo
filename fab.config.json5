@@ -7,7 +7,8 @@
     '@fab/plugin-render-html': {
       fallback: false
     },
-    '@fab/plugin-rewire-assets': {}
+    '@fab/plugin-rewire-assets': {},
+    './fab-server.js': {},
     // This section defines your build & runtime toolchains. See https://fab.dev/kb/plugins
   },
   settings: {
